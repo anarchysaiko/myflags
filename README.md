@@ -2,7 +2,7 @@
 
 为了实时追踪我的~~flags~~完成情况，我决定使用GitHub Actions来实现。
 
-**整体完成情况：** ![总进度](https://img.shields.io/badge/%E6%80%BB%E8%BF%9B%E5%BA%A6-3%25-red)
+**整体完成情况：** ![总进度](https://img.shields.io/badge/%E6%80%BB%E8%BF%9B%E5%BA%A6-0%25-red)
 
 ## 2025年
 
@@ -16,7 +16,7 @@
 
 - [ ] 基于DEMATEL-ISM方法的基层政府对大语言模型使用意愿的影响因素研究 ![截止](https://img.shields.io/badge/截止-2024--12--31-blue) ![类型](https://img.shields.io/badge/类型-论文-brightgreen) ![领域](https://img.shields.io/badge/领域-研究-yellow) ![优先级](https://img.shields.io/badge/优先级-高-red) ![进度](https://img.shields.io/badge/进度-0%25-red)
 
-### 重要不紧急 ![进度](https://img.shields.io/badge/%E8%BF%9B%E5%BA%A6-7%25-red)
+### 重要不紧急 ![进度](https://img.shields.io/badge/%E8%BF%9B%E5%BA%A6-0%25-red)
 
 - [ ] 智慧社区矛盾纠纷治理平台的开发 ![类型](https://img.shields.io/badge/类型-项目-brightgreen) ![领域](https://img.shields.io/badge/领域-编程-yellow) ![优先级](https://img.shields.io/badge/优先级-中-yellow) ![进度](https://img.shields.io/badge/进度-0%25-red)
   - [ ] 需求分析 ![截止](https://img.shields.io/badge/截止-2024--05--30-blue) ![类型](https://img.shields.io/badge/类型-文档-lightgrey) ![进度](https://img.shields.io/badge/进度-0%25-red)
@@ -47,4 +47,4 @@
 
 - [ ] CAMEL-AI多智能体教程 ![类型](https://img.shields.io/badge/类型-AI-brightgreen) ![领域](https://img.shields.io/badge/领域-学习-yellow) ![优先级](https://img.shields.io/badge/优先级-中-yellow) ![进度](https://img.shields.io/badge/进度-0%25-red)
 
-### 不紧急不重要 ![进度](https://img.shields.io/badge/进度-无任务-inactive)
+### 不紧急不重要 ![进度](https://img.shields.io/badge/%E8%BF%9B%E5%BA%A6-0%25-red)
