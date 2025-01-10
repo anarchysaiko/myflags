@@ -18,6 +18,11 @@ jobs:
         with:
           python-version: '3.x'
           
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytz
+          
       - name: Calculate Progress and Add Timestamps
         run: |
           python3 - <<EOF
