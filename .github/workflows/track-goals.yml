@@ -80,16 +80,19 @@ jobs:
               # 检查是否是任务行
               if line.strip().startswith('- ['):
                   # 检查是否是新完成的任务
-                  is_completed = line.strip().startswith('- [x]')
-                  was_incomplete = '![完成](https://img.shields.io/badge' not in line
+                  is_completed = '- [x]' in line
+                  was_incomplete = '![完成]' not in line
                   
                   if is_completed and was_incomplete:
-                      # 移除行尾的换行符
-                      line = line.rstrip()
+                      # 移除行尾的换行符和现有徽章
+                      line = re.sub(r'\s*!\[完成\].*?\)\s*$', '', line.rstrip())
                       # 添加完成时间徽章
                       completion_date = get_beijing_time()
                       line += f' ![完成](https://img.shields.io/badge/完成-{completion_date}-brightgreen)\n'
                       modified = True
+                  elif not is_completed:
+                      # 如果任务未完成，移除可能存在的完成时间徽章
+                      line = re.sub(r'\s*!\[完成\].*?\)\s*$', '\n', line)
 
                   if current_section:
                       sections[current_section].append(line)
