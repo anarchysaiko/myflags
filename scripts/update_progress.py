@@ -13,4 +13,89 @@ def calculate_progress(tasks):
     return (completed * 100 // total) if total > 0 else 0
 
 
-# ... 其余 Python 代码 ...
+def get_color(progress):
+    if progress is None:
+        return "inactive"
+    if progress < 30:
+        return "red"
+    elif progress < 70:
+        return "yellow"
+    return "green"
+
+
+def get_beijing_time():
+    beijing_tz = pytz.timezone("Asia/Shanghai")
+    return datetime.now(beijing_tz).strftime("%Y-%m-%d")
+
+
+# 读取文件内容
+with open("README.md", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+
+new_lines = []
+modified = False
+sections = {"重要且紧急": [], "重要不紧急": [], "紧急不重要": [], "不紧急不重要": []}
+current_section = None
+
+for i, line in enumerate(lines):
+    if line.startswith("### "):
+        current_section = line.replace("### ", "").split(" ![")[0]
+        new_lines.append(line)
+        continue
+
+    # 检查是否是任务行
+    if line.strip().startswith("- ["):
+        # 检查是否是新完成的任务
+        is_completed = line.strip().startswith("- [x]")
+        was_incomplete = "![完成](https://img.shields.io/badge" not in line
+
+        if is_completed and was_incomplete:
+            # 移除行尾的换行符
+            line = line.rstrip()
+            # 添加完成时间徽章
+            completion_date = get_beijing_time()
+            line += f" ![完成](https://img.shields.io/badge/完成-{completion_date}-brightgreen)\n"
+            modified = True
+
+        if current_section:
+            sections[current_section].append(line)
+
+    new_lines.append(line)
+
+# 计算每个部分的进度
+for section, tasks in sections.items():
+    if tasks:
+        progress = calculate_progress(tasks)
+        color = get_color(progress)
+        progress_text = f"{progress}%" if progress is not None else "无任务"
+
+        # 更新部分标题的进度徽章
+        for i, line in enumerate(new_lines):
+            if line.startswith(f"### {section}"):
+                new_lines[i] = (
+                    f"### {section} ![进度](https://img.shields.io/badge/进度-{progress_text}-{color})\n"
+                )
+                break
+
+# 计算总进度
+all_tasks = []
+for tasks in sections.values():
+    all_tasks.extend(tasks)
+
+total_progress = calculate_progress(all_tasks)
+total_color = get_color(total_progress)
+
+# 更新总进度徽章
+for i, line in enumerate(new_lines):
+    if "![总体完成进度]" in line:
+        progress_text = f"{total_progress}%" if total_progress is not None else "0%"
+        new_lines[i] = (
+            f"**整体完成情况：** ![总体完成进度](https://img.shields.io/badge/总进度-{progress_text}-{total_color})\n"
+        )
+        break
+
+# 写入更新后的内容
+with open("README.md", "w", encoding="utf-8") as f:
+    f.writelines(new_lines)
+
+print("Progress update completed successfully!")
