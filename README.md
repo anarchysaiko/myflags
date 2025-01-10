@@ -32,7 +32,7 @@
 
 - [ ] 程致杯寒假社会实践大赛"社区AI智能纠纷调解专家" ![类型](https://img.shields.io/badge/类型-比赛-brightgreen) ![优先级](https://img.shields.io/badge/优先级-中-yellow) ![进度](https://img.shields.io/badge/进度-100%25-green)
 
-- [x] 面向学习者视角的学习方法设计沉淀 ![类型](https://img.shields.io/badge/类型-方法论-brightgreen) ![进度](https://img.shields.io/badge/进度-0%25-red) ![完成](https://img.shields.io/badge/完成-2025.01.10-brightgreen)
+- [ ] 面向学习者视角的学习方法设计沉淀 ![类型](https://img.shields.io/badge/类型-方法论-brightgreen) ![进度](https://img.shields.io/badge/进度-0%25-red)
 
 - [ ] AI 365每日日历 ![类型](https://img.shields.io/badge/类型-创意项目-brightgreen) ![进度](https://img.shields.io/badge/进度-0%25-red)
 
