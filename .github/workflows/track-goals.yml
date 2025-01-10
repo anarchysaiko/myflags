@@ -34,6 +34,7 @@ jobs:
           import re
           from datetime import datetime
           import pytz
+          from urllib.parse import quote
 
           def calculate_progress(tasks):
               if not tasks:
@@ -55,7 +56,12 @@ jobs:
 
           def get_beijing_time():
               beijing_tz = pytz.timezone('Asia/Shanghai')
-              return datetime.now(beijing_tz).strftime('%Y-%m-%d')
+              return datetime.now(beijing_tz).strftime('%Y.%m.%d')
+
+          def create_progress_badge(text, progress, color):
+              # URL 编码进度值
+              progress_text = f'{progress}%25' if progress is not None else '无任务'
+              return f'![{text}](https://img.shields.io/badge/{quote(text)}-{progress_text}-{color})'
 
           # 读取文件内容
           with open('README.md', 'r', encoding='utf-8') as f:
@@ -104,12 +110,13 @@ jobs:
               if tasks:
                   progress = calculate_progress(tasks)
                   color = get_color(progress)
-                  progress_text = f'{progress}%' if progress is not None else '无任务'
+                  # 使用新的徽章生成函数
+                  badge = create_progress_badge('进度', progress, color)
                   
                   # 更新部分标题的进度徽章
                   for i, line in enumerate(new_lines):
                       if line.startswith(f'### {section}'):
-                          new_lines[i] = f'### {section} ![进度](https://img.shields.io/badge/进度-{progress_text}-{color})\n'
+                          new_lines[i] = f'### {section} {badge}\n'
                           break
 
           # 计算总进度
@@ -123,8 +130,8 @@ jobs:
           # 更新总进度徽章
           for i, line in enumerate(new_lines):
               if '![总体完成进度]' in line:
-                  progress_text = f'{total_progress}%' if total_progress is not None else '0%'
-                  new_lines[i] = f'**整体完成情况：** ![总体完成进度](https://img.shields.io/badge/总进度-{progress_text}-{total_color})\n'
+                  total_badge = create_progress_badge('总进度', total_progress, total_color)
+                  new_lines[i] = f'**整体完成情况：** {total_badge}\n'
                   break
 
           # 写入更新后的内容
