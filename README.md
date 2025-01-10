@@ -30,7 +30,7 @@
   - [ ] 教材编写 ![截止](https://img.shields.io/badge/截止-2024--09--30-blue) ![进度](https://img.shields.io/badge/进度-0%25-red)
   - [ ] 试讲与优化 ![截止](https://img.shields.io/badge/截止-2024--10--30-blue) ![进度](https://img.shields.io/badge/进度-0%25-red)
 
-- [ ] 程致杯寒假社会实践大赛"社区AI智能纠纷调解专家" ![类型](https://img.shields.io/badge/类型-比赛-brightgreen) ![优先级](https://img.shields.io/badge/优先级-中-yellow)
+- [ ] 程致杯寒假社会实践大赛"社区AI智能纠纷调解专家" ![类型](https://img.shields.io/badge/类型-比赛-brightgreen) ![优先级](https://img.shields.io/badge/优先级-中-yellow) ![进度](https://img.shields.io/badge/进度-0%25-green)
 
 - [ ] 面向学习者视角的学习方法设计沉淀 ![类型](https://img.shields.io/badge/类型-方法论-brightgreen) ![进度](https://img.shields.io/badge/进度-0%25-red)
 
